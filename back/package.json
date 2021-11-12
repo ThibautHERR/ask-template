@@ -18,6 +18,9 @@
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "eslint": "^8.2.0",
+    "eslint-plugin-react": "^7.27.0",
+    "nodemon": "^2.0.13",
+    "prettier": "2.4.1"
   }
 }

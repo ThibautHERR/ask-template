@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       question: DataTypes.STRING,
       type: DataTypes.STRING,
-      author: DataTypes.STRING,
+      author: DataTypes.STRING
     },
     {}
   );

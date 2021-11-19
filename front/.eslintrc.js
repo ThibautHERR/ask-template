@@ -86,7 +86,7 @@ module.exports = {
       },
     ],
     "line-comment-position": "error",
-    "linebreak-style": ["error", "windows"],
+    "linebreak-style": ["error", "unix"],
     "lines-around-comment": "error",
     "lines-between-class-members": "error",
     "max-classes-per-file": "error",

@@ -10,6 +10,6 @@ job:
     steps: 
       -uses: action/checkout@v2
       -name: Installation des dépendences
-       run: yarn --cwd ./front
+        run: yarn --cwd ./front
       -name: Lintage
-       run: yarn --cwd ./front eslint . --ext .js 
+        run: yarn --cwd ./front eslint . --ext .js 

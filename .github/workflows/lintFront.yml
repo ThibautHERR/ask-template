@@ -1,0 +1,15 @@
+name: C'est beau
+
+on: 
+  push:
+    branches: [main]
+
+job:
+  c-beau-par-la:
+    runs-on: ubuntu-latest
+    steps: 
+      -uses: action/checkout@v2
+      -name: Installation des dépendences
+       run: yarn --cwd ./front
+      -name: Lintage
+       run: eslint ./front --ext .js 

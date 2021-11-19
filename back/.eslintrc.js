@@ -3,11 +3,11 @@ module.exports = {
     browser: true,
     commonjs: true,
     es2021: true,
-    node: true,
+    node: true
   },
-  extends: ["eslint:recommended", "prettier"],
+  extends: ["eslint:recommended"],
   parserOptions: {
-    ecmaVersion: 13,
+    ecmaVersion: 13
   },
   rules: {
     "accessor-pairs": "error",
@@ -21,8 +21,8 @@ module.exports = {
       "error",
       {
         after: true,
-        before: true,
-      },
+        before: true
+      }
     ],
     "block-scoped-var": "error",
     "block-spacing": "error",
@@ -36,7 +36,7 @@ module.exports = {
       {
         after: true,
         before: false
-      },
+      }
     ],
     "comma-style": ["error", "last"],
     complexity: "error",
@@ -72,8 +72,8 @@ module.exports = {
       "error",
       {
         after: true,
-        before: true,
-      },
+        before: true
+      }
     ],
     "line-comment-position": "error",
     "linebreak-style": "off",
@@ -153,8 +153,8 @@ module.exports = {
     "no-tabs": [
       "error",
       {
-        allowIndentationTabs: true,
-      },
+        allowIndentationTabs: true
+      }
     ],
     "no-template-curly-in-string": "error",
     "no-ternary": "off",
@@ -230,6 +230,6 @@ module.exports = {
     "wrap-iife": "error",
     "wrap-regex": "error",
     "yield-star-spacing": "error",
-    yoda: ["error", "never"],
-  },
+    yoda: ["error", "never"]
+  }
 };

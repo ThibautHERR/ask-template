@@ -12,4 +12,4 @@ job:
       -name: Installation des dépendences
        run: yarn --cwd ./front
       -name: Lintage
-       run: eslint ./front --ext .js 
+       run: npx eslint ./front --ext .js 

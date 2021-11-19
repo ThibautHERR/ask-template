@@ -1,15 +1,44 @@
-name: C'est beau
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-on: 
+name: Check Lint & Pretty
+
+on:
   push:
-    branches: [main]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-job:
-  c-beau-par-la:
+jobs:
+  back:
+    defaults:
+      run:
+        working-directory: ./back
+
     runs-on: ubuntu-latest
-    steps: 
-      -uses: action/checkout@v2
-      -name: Installation des dépendences
-        run: yarn --cwd ./front
-      -name: Lintage
-        run: yarn --cwd ./front eslint . --ext .js 
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup NodeJS
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+    - run: npm install --only=dev
+    - run: npm run lint
+    - run: npm run check-pretty
+  
+  front:
+    defaults:
+      run:
+        working-directory: ./front
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup NodeJS
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+    - run: npm install --only=dev
+    - run: npm run check-pretty

@@ -25,7 +25,6 @@ jobs:
         node-version: 14
     - run: npm install --only=dev
     - run: npm run lint
-    - run: npm run check-pretty
   
   front:
     defaults:
@@ -41,4 +40,4 @@ jobs:
       with:
         node-version: 14
     - run: npm install --only=dev
-    - run: npm run check-pretty
+    - run: npm run lint

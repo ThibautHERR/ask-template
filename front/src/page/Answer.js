@@ -3,6 +3,8 @@ import Container from "react-bootstrap/Container";
 import Spinner from "react-bootstrap/Spinner";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+// eslint-disable-next-line no-duplicate-imports
+import React from "react"
 
 import { useMutation, useQuery } from "react-query";
 
@@ -16,35 +18,30 @@ export default function Answer() {
 
   const [answer, setAnswer] = useState("");
 
-  const { data: question, isLoading } = useQuery(["questions", id], () =>
-    api.questions.getOne(id)
+  const { data: question, isLoading } = useQuery(["questions", id], () => api.questions.getOne(id)
   );
   const { mutate: addAnswer } = useMutation(api.questions.answer, {
-    onSuccess: (data) => {
+    onSuccess: () => {
       history.push("/");
     },
   });
 
   function handleAnswer() {
-    if (!!answer) {
+    if (answer) {
       addAnswer({ id: id, body: { answer } });
     }
   }
 
   return (
     <Container>
-      {isLoading ? (
-        <Spinner animation="border" />
-      ) : (
-        <>
+      {isLoading? <Spinner animation="border" />:<>
           <p>{question.question}</p>
           <p>
             Posée par {question.author !== null ? question.author : "Anonyme"}{" "}
             le {dateToString(question.createdAt)}
           </p>
 
-          {question.Answer === null ? (
-            <>
+          {question.Answer === null? <>
               <Form.Group>
                 <Form.Label>Réponse</Form.Label>
                 <Form.Control
@@ -63,16 +60,14 @@ export default function Answer() {
               >
                 Répondre
               </Button>
-            </>
-          ) : (
-            <>
+            </>:<>
               <p>Réponse:</p>
               <p>{question.Answer.answer}</p>
               <p>Répondu le: {dateToString(question.Answer.createdAt)}</p>
             </>
-          )}
+          }
         </>
-      )}
+      }
     </Container>
   );
 }

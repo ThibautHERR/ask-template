@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Spinner from "react-bootstrap/Spinner";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import React from "react"
 
 import { useQuery } from "react-query";
 import api from "../api";
@@ -21,32 +22,25 @@ export default function ListQuestions() {
   return (
     <Container>
       <h1>Toutes les questions</h1>
-      {isLoading ? (
-        <Spinner animation="border" />
-      ) : (
-        questions.map((q) => (
-          <Card key={q.id}>
+      {isLoading? <Spinner animation="border" />:questions.map((q) => <Card key={q.id}>
             <Card.Body>
               <p>{q.question}</p>
               <p>
                 Posée par {q.author !== null ? q.author : "Anonyme"} le{" "}
                 {dateToString(q.createdAt)}
               </p>
-              {q.Answer === null ? (
-                <Button onClick={() => history.push("/answer/" + q.id)}>
+              {q.Answer === null? <Button onClick={() => history.push("/answer/" + q.id)}>
                   Répondre
-                </Button>
-              ) : (
-                <>
+                </Button>:<>
                   <p>Réponse:</p>
                   <p>{q.Answer.answer}</p>
                   <p>Répondu le: {dateToString(q.Answer.createdAt)}</p>
                 </>
-              )}
+              }
             </Card.Body>
           </Card>
-        ))
-      )}
+        )
+      }
     </Container>
   );
 }

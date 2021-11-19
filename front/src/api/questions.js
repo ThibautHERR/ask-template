@@ -8,23 +8,23 @@ const questions = {
         "content-type": "application/json",
       },
       body: JSON.stringify(body),
-    })
-      .then(checkStatus)
-      .then((res) => res.json());
+    }).
+      then(checkStatus).
+      then((res) => res.json());
   },
   getAll: () => {
     return fetch(`${host}/questions`, {
       method: "GET",
-    })
-      .then(checkStatus)
-      .then((res) => res.json());
+    }).
+      then(checkStatus).
+      then((res) => res.json());
   },
   getOne: (id) => {
     return fetch(`${host}/questions/${id}`, {
       method: "GET",
-    })
-      .then(checkStatus)
-      .then((res) => res.json());
+    }).
+      then(checkStatus).
+      then((res) => res.json());
   },
   answer: ({ id, body }) => {
     return fetch(`${host}/questions/${id}/answer`, {
@@ -33,9 +33,9 @@ const questions = {
         "content-type": "application/json",
       },
       body: JSON.stringify(body),
-    })
-      .then(checkStatus)
-      .then((res) => res.json());
+    }).
+      then(checkStatus).
+      then((res) => res.json());
   },
 };
 

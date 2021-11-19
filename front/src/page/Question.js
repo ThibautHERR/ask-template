@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -16,15 +15,15 @@ export default function Question() {
   const [question, setQuestion] = useState("");
 
   const { mutate: addQuestion } = useMutation(api.questions.addQuestion, {
-    onSuccess: (data) => {
+    onSuccess: () => {
       history.push("/");
     },
   });
 
   function handleAdd() {
-    if (!!question) {
+    if (question) {
       addQuestion({
-        author: !!author ? author : undefined,
+        author: author ? author : undefined,
         type,
         question,
       });
